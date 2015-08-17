@@ -272,6 +272,12 @@ class Operation extends EventEmitter {
   }
 
   /**
+   * Updates the options depending on new size
+   */
+  updateOptionsForNewDimensions(initialFrom, initialTo, from, to) {
+  }
+
+  /**
    * Sets this operation to dirty, so that it will re-render next time
    * @param {Boolean} dirty = true
    */
