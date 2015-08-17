@@ -504,6 +504,13 @@ class NightUI extends UI {
     this._topControls.updateUndoButton()
   }
 
+  dimensionsChanged(initialFrom, initialTo, from, to) {
+    this._kit.operationsStack.forEach(function(operation) {
+      operation.updateOptionsForNewDimensions(initialFrom, initialTo, from, to);
+    });
+
+  }
+
   /**
    * Exports the current image with the default settings
    */
