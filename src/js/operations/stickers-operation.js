@@ -246,6 +246,26 @@ class StickersOperation extends Operation {
   }
 
   /**
+   * Updates the options depending on new size
+   * @param  {Vector2} initialFrom
+   * @param  {Vector2} initialTo
+   * @param  {Vector2} from
+   * @param  {Vector2} to
+   */
+  updateOptionsForNewDimensions (initialFrom, initialTo, from, to) {
+    const position = this._options.position.clone()
+    const size = this._options.size.clone()
+
+    const oldImageSize = initialTo.clone().subtract(initialFrom)
+    const newImageSize = to.clone().subtract(from)
+
+    this.set({
+      position: position.subtract(from).divide(newImageSize),
+      size: size.divide(newImageSize.divide(oldImageSize))
+    })
+  }
+
+  /**
    * The registered stickers
    * @type {Object.<String,String>}
    */
