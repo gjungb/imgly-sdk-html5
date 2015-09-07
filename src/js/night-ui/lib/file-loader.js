@@ -7,8 +7,7 @@
  *
  * For commercial use, please contact us at contact@9elements.com
  */
-
-import EventEmitter from '../../../lib/event-emitter'
+const { EventEmitter } = PhotoEditorSDK
 
 class FileLoader extends EventEmitter {
   constructor (kit, ui) {
