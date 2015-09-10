@@ -172,6 +172,10 @@ class RenderImage {
     }
     return sanitizedStack
   }
+
+  setDimensions (dimensions) {
+    this._dimensions = new ImageDimensions(dimensions)
+  }
 }
 
 export default RenderImage
