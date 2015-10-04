@@ -260,6 +260,15 @@ class Utils {
     })
     return window.URL.createObjectURL(blob)
   }
+
+  static requestAnimationFrame (fn) {
+    return (window.requestAnimationFrame ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame ||
+          function (callback) {
+            window.setTimeout(callback, 1000 / 60)
+          })(fn)
+  }
 }
 
 export default Utils
