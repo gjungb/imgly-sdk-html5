@@ -261,6 +261,11 @@ class Utils {
     return window.URL.createObjectURL(blob)
   }
 
+  /**
+   * Vendor proxy for requestAnimationFrame
+   * @param  {Function} fn
+   * @return {Number}
+   */
   static requestAnimationFrame (fn) {
     return (window.requestAnimationFrame ||
           window.webkitRequestAnimationFrame ||
@@ -268,6 +273,18 @@ class Utils {
           function (callback) {
             window.setTimeout(callback, 1000 / 60)
           })(fn)
+  }
+
+  /**
+   * Generates a UUID
+   * @return {String}
+   */
+  static getUUID () {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      let r = Math.random() * 16 | 0
+      let v = c === 'x' ? r : (r & 0x3 | 0x8)
+      return v.toString(16)
+    })
   }
 }
 
